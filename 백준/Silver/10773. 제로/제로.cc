@@ -6,12 +6,6 @@
 using namespace std;
 
 
-void sum(char &s)
-{
-
-}
-
-
 
 int main() {
     int T;
@@ -26,7 +20,7 @@ int main() {
         {
             st.push(a);
         }
-        else
+        else if(!st.empty())  //pop 전에 스택이 비어 있는지 확인
         {
             st.pop();
         }
