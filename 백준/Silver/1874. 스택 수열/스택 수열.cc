@@ -1,40 +1,39 @@
 #include <iostream>
 #include <stack>
-#include <algorithm>
 #include <vector>
-using namespace std; 
+
+using namespace std;
+
 int main() {
-	
-	stack <int> st; 
-	int n; cin >> n; 
-	vector <char> answer; 
-	vector <int> input(n); 
-	int number = 1; 
-	for (int i = 0; i < n; i++) {
-		int a; cin >> a; 
-		if (!st.empty() && st.top() == a) {
-			st.pop(); 
-			answer.push_back('-'); 
-		}
-		else if(number<=a) {
+    int n;
+    int cur = 0;
+    int num = 1;
+    cin >> n;
+    vector<int> sequence(n);
+    stack<int> s;
+    vector<char> operations;
 
-			while (number <= a) {
-				st.push(number++);
-				answer.push_back('+'); 
-			}
-			st.pop(); 
-			answer.push_back('-'); 
-		}
-		else if (!st.empty() && st.top() > a) {
-			cout << "NO"; 
-			return 0; 
+    for (int i = 0; i < n; i++) {
+        cin >> sequence[i];
+    }
 
-		}
-		
-	}
-	for (auto x : answer) {
-		cout << x << "\n"; 
-	}
-	return 0; 
+    while (cur < n) {
+        if (s.empty() || s.top() < sequence[cur]) {
+            operations.push_back('+');
+            s.push(num++);
+        } else if (s.top() == sequence[cur]) {
+            operations.push_back('-');
+            s.pop();
+            cur++;
+        } else {
+            cout << "NO" << '\n';
+            return 0;
+        }
+    }
 
+    for (char op : operations) {
+        cout << op << '\n';
+    }
+
+    return 0;
 }
