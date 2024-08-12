@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <execution>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ int main() {
     for(int i=0;i<N;i++)
         cin >> arr[i];
 
-    sort(arr.begin(), arr.end());
+    sort(std::execution::par,arr.begin(), arr.end());
 
     for(int i=0;i<N;i++)
         cout << arr[i] << '\n';
