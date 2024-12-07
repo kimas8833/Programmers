@@ -1,22 +1,23 @@
 #include <iostream>
-#include <cmath>
 #include <queue>
-#include <vector>
+#include <cmath>
 
 using namespace std;
 
-struct Compare{
+struct compare
+{
     bool operator()(const int& a, const int& b)
     {
         if(abs(a) == abs(b))
         {
-            return a > b;
+            return a >b;
         }
-        return abs(a) > abs(b);
-    }
-
+        return abs(a) >abs(b);
     
+        
+    }
 };
+
 
 int main()
 {
@@ -25,7 +26,7 @@ int main()
     
     int N;
     cin >> N;
-    priority_queue<int, vector<int>, Compare> pq;
+    priority_queue<int, vector<int>, compare> pq;
     
     while(N--)
     {
@@ -35,7 +36,7 @@ int main()
         {
             if(pq.empty())
             {
-                cout << 0 << '\n';
+                cout << "0" <<'\n';
             }
             else
             {
@@ -47,6 +48,7 @@ int main()
         {
             pq.push(x);
         }
+        
     }
     return 0;
 }
