@@ -19,6 +19,8 @@ void dfs(int node, const vector<vector<int>>& graph, vector<bool>& visited)
 
 int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
     int N, M;
     cin >> N >> M;
     vector<vector<int>> graph(N+1);
@@ -44,7 +46,7 @@ int main()
         }
     }
     
-    cout << connected << endl;
+    cout << connected << '\n';
     
     return 0;
     
