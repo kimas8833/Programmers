@@ -7,10 +7,10 @@ vector<int> solution(vector<int> arr)
 {
     vector<int> answer;
     
-    for(auto& a : arr)
-    if(answer.empty() || a != answer.back())
+    for(int i=0;i<arr.size();i++)
     {
-        answer.push_back(a);
+        if(answer.empty() || answer.back() != arr[i])
+            answer.push_back(arr[i]);
     }
 
     return answer;
